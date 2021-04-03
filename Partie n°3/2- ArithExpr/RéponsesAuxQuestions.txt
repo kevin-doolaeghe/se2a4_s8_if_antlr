@@ -1,0 +1,2 @@
+En exécutant la grammaire ArithExpr avec la chaine 5+2x9-2/2, on obtient le résultat 24.
+Le vrai résultat devrait être 22 mais la priorité des opérations n'est pas correcte.

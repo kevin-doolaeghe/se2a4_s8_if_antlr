@@ -1,0 +1,49 @@
+Le parser est prioritaire sur le lexer.
+
+La règle du lexer utilisée est choisie selon les deux paramètres suivants :
+    1- La règle fonctionne avec l'entrée la plus longue.
+    2- Si plusieurs règles fonctionnent, la première règle dans l'ordre de déclaration qui fonctionne est celle choisie.
+
+Il faut donc placer les règles dans l'ordre suivant pour avoir le bon ordre de priorités.
+    - Parenthèses
+    - Multiplication-division-modulo
+    - Addition-soustraction
+
+Pour lire les expressions par priorité et de gauche à droite, on peut aussi créer la grammaire suivante :
+
+Etat initial : expr
+
+expr   -> exprp op
+op     -> '+' exprp op | '-' exprp op | epsilon
+exprp  -> atome opp
+opp    -> 'x' atome opp | '/' atome opp | epsilon
+atome  -> '(' expr ')' | <int>
+
+avec <int>, un nombre entier.
+
+Cependant, cette grammaire est compliquée à réaliser avec ANTLR.
+
+On réalise donc la grammaire suivante qui risque de ne pas fonctionner dans certains cas pour le traiement de gauche à droite.
+
+Etat initial : expr
+
+expr   -> '(' expr ')' | expr '+' expr | expr '-' expr | exprP '*' exprP | exprP '/' exprP | exprP '%' exprP | <int>
+exprP  -> '(' expr ')' | exprP '*' exprP | exprP '/' exprP | exprP '%' exprP | <int>
+
+On obtient ainsi bien le résultat 22 pour l'expression 5+2*9-2/2.
+
+Les régles du parser ont été placées dans l'ordre suivant :
+    - parenthèses
+    - multiplication
+    - division
+    - modulo
+    - entier
+
+Les régles du lexer ont été placées dans l'ordre suivant :
+    - parenthèses
+    - multiplication
+    - division
+    - modulo
+    - addition
+    - soustration
+    - entier
