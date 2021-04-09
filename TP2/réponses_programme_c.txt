@@ -1,0 +1,5 @@
+1- Accolades prises en charge
+2- If sans le then fonctionnel
+3- Ajout du else pour le if
+4- Prise en charge de ==, !=, < et > pour le if
+5- Ajout du while fonctionnel comme pour le if

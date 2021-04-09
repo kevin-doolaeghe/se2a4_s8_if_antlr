@@ -1,3 +1,15 @@
+Réponses aux questions sur les expressions arithmétiques :
+
+
+Question n°1 :
+
+En exécutant la grammaire ArithExpr avec la chaine 5+2x9-2/2, on obtient le résultat 24.
+Le vrai résultat devrait être 22 mais la priorité des opérations n'est pas correcte.
+
+_________________________________________________________________
+
+Question n°2 :
+
 Le parser est prioritaire sur le lexer.
 
 La règle du lexer utilisée est choisie selon les deux paramètres suivants :
