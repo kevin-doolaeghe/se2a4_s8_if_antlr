@@ -1,4 +1,4 @@
-# TP Informatique fondamentale - ANTLR
+# SE2A4 | Semestre n°8 - TP Informatique fondamentale avec ANTLR
 
 ## Auteur
 
